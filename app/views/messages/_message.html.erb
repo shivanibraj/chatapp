@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col">
+    <% if current_user.id == message.user.id %>
+      <div class="chat bg-secondary d-inline-block text-left text-white mb-2">
+        <div class="chat-bubble">
+          <div class="row">
+            <div class="col">
+              <%= gravatar_for message.user %>
+            </div>
+            <div class="float-md-right">
+              <span class="chat-username"><br><%= message.user.name %> at <%= message.timestamp %> says</span><br>
+                <h5><%= message.body %></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="chat float-right  bg-secondary d-inline-block text-left text-white mb-2">
+        <div class="chat-bubble">
+          <div class="row">
+            <div class="col">
+              <%= gravatar_for message.user %>
+            </div>
+            <div class="float-md-left">
+              <span class="chat-username"><br><%= message.user.name %> at <%= message.timestamp %> says</span><br>
+                <h5><%= message.body %></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>  
+  </div>
+</div>
+
